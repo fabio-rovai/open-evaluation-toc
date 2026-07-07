@@ -1,14 +1,14 @@
 # When a Theory of Change has to hold up
 
-A self-initiated, open method demonstrator by [Tesseract Academy](https://gov.tesseract.academy). It shows how a **Theory of Change** — the workhorse of non-experimental evaluation — can be built as a **typed, evidence-graded, machine-validated graph** rather than a prose diagram, so that its weak links are named rather than buried.
+A self-initiated, open method demonstrator by [Tesseract Academy](https://gov.tesseract.academy). It shows how a **Theory of Change** - the workhorse of non-experimental evaluation - can be built as a **typed, evidence-graded, machine-validated graph** rather than a prose diagram, so that its weak links are named rather than buried.
 
 The method is worked openly on **victim and witness support** (court-based support for witnesses; support for families bereaved by homicide), with every outcome anchored to the four published **[Victims' Funding Strategy](https://www.gov.uk/government/publications/victims-funding-strategy/victims-funding-strategy)** national outcomes.
 
-> **Independent, self-initiated reflection on method.** Built entirely from public information and open standards. It uses no confidential or commissioned data and represents no organisation's findings but our own. Evidence grades marked *illustrative* demonstrate the structure of the method; the entries marked **gap** reflect a real state of the field — widely-assumed links that are not yet robustly evidenced.
+> **Independent, self-initiated reflection on method.** Built entirely from public information and open standards. It uses no confidential or commissioned data and represents no organisation's findings but our own. Evidence grades marked *illustrative* demonstrate the structure of the method; the entries marked **gap** reflect a real state of the field - widely-assumed links that are not yet robustly evidenced.
 
 ## Why this exists
 
-The centre of government is raising the evidential bar behind spending. The [Evaluation Task Force](https://www.gov.uk/government/publications/evaluation-task-force-strategy-2026-2029) (Cabinet Office / HM Treasury) is shifting from checking that evaluation happens to ensuring evidence shapes decisions; the [Victims and Prisoners Act 2024](https://www.legislation.gov.uk/ukpga/2024/21/contents) and the Victims' Funding Strategy push victim services towards outcome-based, accountable, proportionately-evidenced commissioning. Most of that evaluation rests on a Theory of Change — and theory-based evaluation has long carried a known flaw (Weiss): the programme theory gets drawn and then not used, because on the page a link with no evidence looks identical to a link with strong evidence.
+The centre of government is raising the evidential bar behind spending. The [Evaluation Task Force](https://www.gov.uk/government/publications/evaluation-task-force-strategy-2026-2029) (Cabinet Office / HM Treasury) is shifting from checking that evaluation happens to ensuring evidence shapes decisions; the [Victims and Prisoners Act 2024](https://www.legislation.gov.uk/ukpga/2024/21/contents) and the Victims' Funding Strategy push victim services towards outcome-based, accountable, proportionately-evidenced commissioning. Most of that evaluation rests on a Theory of Change - and theory-based evaluation has long carried a known flaw (Weiss): the programme theory gets drawn and then not used, because on the page a link with no evidence looks identical to a link with strong evidence.
 
 Treating the Theory of Change as data fixes that:
 
@@ -36,11 +36,11 @@ pip install pyshacl rdflib
 python3 scripts/validate.py
 ```
 
-Expected output: `SHACL conforms: True`, followed by the evidence-gap map — **2 evidence gaps across 7 pathways**.
+Expected output: `SHACL conforms: True`, followed by the evidence-gap map - **2 evidence gaps across 7 pathways**.
 
 ## Method, in one line
 
-The products a commissioner sees are the familiar ones — the diagram, the narrative, the monitoring-and-evaluation framework; the structured graph underneath is what makes them auditable, internally consistent, and reusable in the full evaluation that follows.
+The products a commissioner sees are the familiar ones - the diagram, the narrative, the monitoring-and-evaluation framework; the structured graph underneath is what makes them auditable, internally consistent, and reusable in the full evaluation that follows.
 
 ## Licence
 

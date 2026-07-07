@@ -82,7 +82,7 @@ ex:A_peerTrust      a toc:Assumption ; rdfs:label "Peer / advocacy support build
 ex:A_cypAccess      a toc:Assumption ; rdfs:label "Community outreach reaches affected children & young people" .
 
 #################################################################
-#  COURT-BASED WITNESS SUPPORT — pathways
+#  COURT-BASED WITNESS SUPPORT - pathways
 #################################################################
 ex:P1 a toc:Pathway ;
     rdfs:label "Pre-trial familiarisation reduces witness anxiety" ;
@@ -137,7 +137,7 @@ ex:P4 a toc:Pathway ;
     toc:priorityForEval true .
 
 #################################################################
-#  BEREAVEMENT (HOMICIDE) SUPPORT — pathways
+#  BEREAVEMENT (HOMICIDE) SUPPORT - pathways
 #################################################################
 ex:H1 a toc:Pathway ;
     rdfs:label "Emotional, practical & peer support builds resilience after bereavement" ;
