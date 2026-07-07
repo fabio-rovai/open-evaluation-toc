@@ -1,21 +1,22 @@
 @prefix toc:  <https://gov.tesseract.academy/ns/toc#> .
 @prefix vfs:  <https://gov.tesseract.academy/ns/vfs#> .
-@prefix ex:   <https://gov.tesseract.academy/data/nws-nhs-toc#> .
+@prefix ex:   <https://gov.tesseract.academy/data/vw-support-toc#> .
 @prefix owl:  <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
 @prefix dct:  <http://purl.org/dc/terms/> .
 
 #################################################################
-#  A typed Theory-of-Change vocabulary for victim & witness support
-#  Self-initiated open demonstrator by Tesseract Academy. CC-BY-4.0.
-#  Anchored on the MoJ Victims' Funding Strategy outcomes.
+#  A typed Theory-of-Change vocabulary for programme evaluation.
+#  Self-initiated open method demonstrator by Tesseract Academy.
+#  Worked on victim & witness support; outcomes anchored on the
+#  published Victims' Funding Strategy national outcomes. CC-BY-4.0.
 #################################################################
 
 toc: a owl:Ontology ;
-    dct:title "Theory-of-Change vocabulary for victim & witness support" ;
+    dct:title "Theory-of-Change vocabulary for programme evaluation" ;
     dct:license <https://creativecommons.org/licenses/by/4.0/> ;
-    rdfs:comment "Types the elements of a Theory of Change so that completeness, VFS-outcome alignment and evidence gaps can be validated by machine." .
+    rdfs:comment "Types the elements of a Theory of Change so that completeness, alignment to published outcomes, and evidence gaps can be validated by machine." .
 
 ## Node types --------------------------------------------------
 toc:Node      a owl:Class .
@@ -29,7 +30,7 @@ toc:Pathway   a owl:Class ;
     rdfs:comment "One mechanism of change: input -> activity -> output -> outcome -> impact, with declared assumptions and an evidence grade." .
 
 vfs:Outcome   a owl:Class ;
-    rdfs:comment "A national outcome from the MoJ Victims' Funding Strategy." .
+    rdfs:comment "A national outcome from the published Victims' Funding Strategy, used here as an example of a published outcome set to anchor to." .
 
 ## Properties --------------------------------------------------
 toc:hasInput     a owl:ObjectProperty ; rdfs:domain toc:Pathway ; rdfs:range toc:Input .
@@ -46,7 +47,7 @@ toc:priorityForEval a owl:DatatypeProperty ; rdfs:range xsd:boolean .
 toc:service      a owl:DatatypeProperty ; rdfs:range xsd:string .
 
 #################################################################
-#  Victims' Funding Strategy outcomes (the four national outcomes)
+#  Published national outcomes (Victims' Funding Strategy)
 #################################################################
 vfs:O1_Cope a vfs:Outcome ;
     rdfs:label "Coped and built resilience to move forward with daily life" .
@@ -57,36 +58,35 @@ vfs:O3_Support a vfs:Outcome ;
 vfs:O4_CJS a vfs:Outcome ;
     rdfs:label "Increased engagement with the criminal justice system" .
 
-## Outcome nodes (mapped to VFS) ------------------------------
+## Outcome nodes (mapped to a published outcome) --------------
 ex:OUT_Informed a toc:Outcome ;
-    rdfs:label "Witness feels informed about the process and their role" ;
+    rdfs:label "Feels informed about the process and their role" ;
     toc:mapsToVFS vfs:O2_Informed .
 ex:OUT_Support a toc:Outcome ;
     rdfs:label "Received the support they needed, when they wanted it" ;
     toc:mapsToVFS vfs:O3_Support .
 ex:OUT_CJS a toc:Outcome ;
-    rdfs:label "Increased / sustained engagement with the CJS" ;
+    rdfs:label "Increased / sustained engagement with the justice process" ;
     toc:mapsToVFS vfs:O4_CJS .
 ex:OUT_Cope a toc:Outcome ;
-    rdfs:label "Coped and built resilience after homicide bereavement" ;
+    rdfs:label "Coped and built resilience after bereavement" ;
     toc:mapsToVFS vfs:O1_Cope .
 
 ## Assumptions ------------------------------------------------
-ex:A_referralTiming a toc:Assumption ; rdfs:label "Referral reaches the witness before attendance" .
-ex:A_settingDriver  a toc:Assumption ; rdfs:label "Court setting is a primary anxiety driver" .
+ex:A_referralTiming a toc:Assumption ; rdfs:label "Referral reaches the person before attendance" .
+ex:A_settingDriver  a toc:Assumption ; rdfs:label "The setting is a primary anxiety driver" .
 ex:A_capacity       a toc:Assumption ; rdfs:label "Volunteer / staff capacity matches demand" .
 ex:A_marginalEffect a toc:Assumption ; rdfs:label "Support influences the attend / withdraw decision at the margin" .
 ex:A_modelFit       a toc:Assumption ; rdfs:label "Delivery model (in-person / remote) fits the person's needs" .
-ex:A_dataReconcile  a toc:Assumption ; rdfs:label "London (MOPAC) and national monitoring data are reconcilable" .
 ex:A_peerTrust      a toc:Assumption ; rdfs:label "Peer / advocacy support builds trust for bereaved families" .
 ex:A_cypAccess      a toc:Assumption ; rdfs:label "Community outreach reaches affected children & young people" .
 
 #################################################################
-#  NATIONAL WITNESS SERVICE — pathways
+#  COURT-BASED WITNESS SUPPORT — pathways
 #################################################################
 ex:P1 a toc:Pathway ;
     rdfs:label "Pre-trial familiarisation reduces witness anxiety" ;
-    toc:service "National Witness Service" ;
+    toc:service "Court-based witness support" ;
     toc:hasInput   ex:in_volunteers ;
     toc:hasActivity ex:act_familiarisation ;
     toc:hasOutput  ex:outp_understandsSetting ;
@@ -99,7 +99,7 @@ ex:P1 a toc:Pathway ;
 
 ex:P2 a toc:Pathway ;
     rdfs:label "In-court support sustains attendance through to testimony" ;
-    toc:service "National Witness Service" ;
+    toc:service "Court-based witness support" ;
     toc:hasInput   ex:in_onDaySupport ;
     toc:hasActivity ex:act_accompaniment ;
     toc:hasOutput  ex:outp_remainsWilling ;
@@ -111,37 +111,37 @@ ex:P2 a toc:Pathway ;
     toc:priorityForEval true .
 
 ex:P3 a toc:Pathway ;
-    rdfs:label "Information provision delivers Victims' Code Right 8" ;
-    toc:service "National Witness Service" ;
+    rdfs:label "Information provision meets a witness's right to be informed" ;
+    toc:service "Court-based witness support" ;
     toc:hasInput   ex:in_information ;
     toc:hasActivity ex:act_briefing ;
-    toc:hasOutput  ex:outp_right8Met ;
+    toc:hasOutput  ex:outp_rightMet ;
     toc:leadsTo    ex:OUT_Support ;
     toc:hasImpact  ex:imp_codeCompliance ;
-    toc:mechanism  "structured information meets the Code entitlement" ;
+    toc:mechanism  "structured information meets the entitlement" ;
     toc:dependsOn  ex:A_modelFit ;
     toc:evidenceGrade "strong" ;
     toc:priorityForEval false .
 
 ex:P4 a toc:Pathway ;
-    rdfs:label "London pre-trial pathway (devolved to MOPAC to 2028)" ;
-    toc:service "National Witness Service" ;
-    toc:hasInput   ex:in_mopac ;
-    toc:hasActivity ex:act_localDelivery ;
-    toc:hasOutput  ex:outp_parallelRoute ;
-    toc:leadsTo    ex:OUT_Support ;
-    toc:hasImpact  ex:imp_consistentExperience ;
-    toc:mechanism  "locally-commissioned provision delivers a comparable offer" ;
-    toc:dependsOn  ex:A_dataReconcile ;
+    rdfs:label "Remote delivery reaches those who cannot attend in person" ;
+    toc:service "Court-based witness support" ;
+    toc:hasInput   ex:in_remote ;
+    toc:hasActivity ex:act_remoteFam ;
+    toc:hasOutput  ex:outp_remoteReach ;
+    toc:leadsTo    ex:OUT_Informed ;
+    toc:hasImpact  ex:imp_bestEvidence ;
+    toc:mechanism  "remote familiarisation extends reach to non-attenders" ;
+    toc:dependsOn  ex:A_modelFit ;
     toc:evidenceGrade "limited" ;
     toc:priorityForEval true .
 
 #################################################################
-#  NATIONAL HOMICIDE SERVICE — pathways
+#  BEREAVEMENT (HOMICIDE) SUPPORT — pathways
 #################################################################
 ex:H1 a toc:Pathway ;
     rdfs:label "Emotional, practical & peer support builds resilience after bereavement" ;
-    toc:service "National Homicide Service" ;
+    toc:service "Bereavement (homicide) support" ;
     toc:hasInput   ex:in_caseworkers ;
     toc:hasActivity ex:act_blendedSupport ;
     toc:hasOutput  ex:outp_needsMet ;
@@ -153,8 +153,8 @@ ex:H1 a toc:Pathway ;
     toc:priorityForEval true .
 
 ex:H2 a toc:Pathway ;
-    rdfs:label "Advocacy & information deliver Victims' Code Right 4" ;
-    toc:service "National Homicide Service" ;
+    rdfs:label "Advocacy & navigation connect families to tailored help" ;
+    toc:service "Bereavement (homicide) support" ;
     toc:hasInput   ex:in_advocacy ;
     toc:hasActivity ex:act_navigation ;
     toc:hasOutput  ex:outp_informedFamily ;
@@ -166,8 +166,8 @@ ex:H2 a toc:Pathway ;
     toc:priorityForEval false .
 
 ex:H3 a toc:Pathway ;
-    rdfs:label "Community outreach supports children & young people impacted by homicide" ;
-    toc:service "National Homicide Service" ;
+    rdfs:label "Community outreach supports children & young people affected by bereavement" ;
+    toc:service "Bereavement (homicide) support" ;
     toc:hasInput   ex:in_outreachTeam ;
     toc:hasActivity ex:act_cypOutreach ;
     toc:hasOutput  ex:outp_cypSupported ;
@@ -179,34 +179,33 @@ ex:H3 a toc:Pathway ;
     toc:priorityForEval true .
 
 ## Node instances (typed) -------------------------------------
-ex:in_volunteers a toc:Input ; rdfs:label "Trained volunteers & court-based staff at all court locations" .
+ex:in_volunteers a toc:Input ; rdfs:label "Trained volunteers & court-based staff" .
 ex:in_onDaySupport a toc:Input ; rdfs:label "On-the-day emotional & practical support at court" .
-ex:in_information a toc:Input ; rdfs:label "Structured information on trial, process & role" .
-ex:in_mopac a toc:Input ; rdfs:label "MOPAC-commissioned pre-trial provision (London)" .
-ex:in_caseworkers a toc:Input ; rdfs:label "Homicide caseworkers & peer supporters" .
+ex:in_information a toc:Input ; rdfs:label "Structured information on the process & role" .
+ex:in_remote a toc:Input ; rdfs:label "Remote familiarisation & information provision" .
+ex:in_caseworkers a toc:Input ; rdfs:label "Bereavement caseworkers & peer supporters" .
 ex:in_advocacy a toc:Input ; rdfs:label "Advocacy, financial & navigation support" .
 ex:in_outreachTeam a toc:Input ; rdfs:label "Community outreach team for CYP" .
 
-ex:act_familiarisation a toc:Activity ; rdfs:label "Pre-trial court familiarisation & explanation of the process" .
+ex:act_familiarisation a toc:Activity ; rdfs:label "Pre-trial familiarisation & explanation of the process" .
 ex:act_accompaniment a toc:Activity ; rdfs:label "Accompaniment, waiting-area support, court liaison" .
 ex:act_briefing a toc:Activity ; rdfs:label "Needs-based briefing & signposting" .
-ex:act_localDelivery a toc:Activity ; rdfs:label "Locally-delivered pre-trial support (London)" .
+ex:act_remoteFam a toc:Activity ; rdfs:label "Remotely delivered familiarisation & information" .
 ex:act_blendedSupport a toc:Activity ; rdfs:label "Blended emotional / practical / psychological / peer support" .
 ex:act_navigation a toc:Activity ; rdfs:label "Advocacy & service navigation for bereaved families" .
 ex:act_cypOutreach a toc:Activity ; rdfs:label "Short-term community outreach for children & young people" .
 
-ex:outp_understandsSetting a toc:Output ; rdfs:label "Witness understands the setting & their role before attending" .
-ex:outp_remainsWilling a toc:Output ; rdfs:label "Witness remains willing & able to attend and testify" .
-ex:outp_right8Met a toc:Output ; rdfs:label "Right 8 (information about the trial) is met" .
-ex:outp_parallelRoute a toc:Output ; rdfs:label "Comparable support via a separately-commissioned route" .
+ex:outp_understandsSetting a toc:Output ; rdfs:label "Understands the setting & their role before attending" .
+ex:outp_remainsWilling a toc:Output ; rdfs:label "Remains willing & able to attend and testify" .
+ex:outp_rightMet a toc:Output ; rdfs:label "The right to information about the process is met" .
+ex:outp_remoteReach a toc:Output ; rdfs:label "Non-attenders receive familiarisation & information remotely" .
 ex:outp_needsMet a toc:Output ; rdfs:label "Family's practical & emotional needs are met" .
 ex:outp_informedFamily a toc:Output ; rdfs:label "Family understands entitlements & available services" .
 ex:outp_cypSupported a toc:Output ; rdfs:label "Affected CYP receive short-term support in the community" .
 
-ex:imp_bestEvidence a toc:Impact ; rdfs:label "Witness able to give their best evidence" .
+ex:imp_bestEvidence a toc:Impact ; rdfs:label "Able to give their best evidence" .
 ex:imp_reducedAttrition a toc:Impact ; rdfs:label "Reduced witness attrition / non-attendance at trial" .
-ex:imp_codeCompliance a toc:Impact ; rdfs:label "Consistent national compliance with the Victims' Code" .
-ex:imp_consistentExperience a toc:Impact ; rdfs:label "Consistent witness experience across jurisdictions" .
+ex:imp_codeCompliance a toc:Impact ; rdfs:label "Consistent compliance with the entitlement" .
 ex:imp_resilience a toc:Impact ; rdfs:label "Bereaved family rebuilds daily functioning" .
-ex:imp_tailoredReferral a toc:Impact ; rdfs:label "Tailored referral aligned to the Victims' Code" .
+ex:imp_tailoredReferral a toc:Impact ; rdfs:label "Tailored referral aligned to need" .
 ex:imp_cypResilience a toc:Impact ; rdfs:label "Affected CYP stabilised & signposted to longer-term help" .
