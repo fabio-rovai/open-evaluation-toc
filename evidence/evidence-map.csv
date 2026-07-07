@@ -1,0 +1,8 @@
+pathway,service,population,service_model,delivery_mode,vfs_outcome,effect_direction,quality_grade,provenance_type,note
+P1,National Witness Service,Prosecution witnesses at court,Pre-trial familiarisation,in-person,VFS2 Informed,positive (anxiety down),moderate,analogous/indicative,Illustrative of schema; not an asserted effect size
+P2,National Witness Service,Prosecution witnesses at court,On-the-day in-court support,in-person,VFS4 CJS engagement,not estimable,gap,no robust UK study identified,Genuine gap - priority impact question for future evaluation
+P3,National Witness Service,Witnesses (Code Right 8),Information & signposting,in-person/remote,VFS3 Support received,positive (compliance),strong,Victims' Code + service records,Compliance is measurable from monitoring data
+P4,National Witness Service,London prosecution witnesses,Devolved pre-trial (MOPAC),in-person,VFS2/3,comparable (unproven),limited,separate MOPAC monitoring,Data reconciliation is a known feasibility constraint
+H1,National Homicide Service,Bereaved by homicide,Emotional/practical/peer,blended,VFS1 Cope & resilience,positive (indicative),limited,grey literature/provider MI,Indicative only; robust outcome evidence absent
+H2,National Homicide Service,Bereaved by homicide,Advocacy & navigation,blended,VFS3 Support received,positive,moderate,service records + Code Right 4,Tailored referral is trackable
+H3,National Homicide Service,Children & young people (Outreach),Short-term community outreach,in-person,VFS1 Cope & resilience,not estimable,gap,no identified evaluation,Genuine gap - priority question for future evaluation

@@ -1,0 +1,62 @@
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix toc:  <https://gov.tesseract.academy/ns/toc#> .
+@prefix vfs:  <https://gov.tesseract.academy/ns/vfs#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+#################################################################
+#  Completeness & alignment shapes for a Theory of Change.
+#  A conforming graph guarantees: no dangling pathway, every
+#  outcome maps to a Victims' Funding Strategy outcome, every
+#  causal claim carries an evidence grade, every pathway declares
+#  its assumptions. Evidence "gaps" are a valid, recorded value,
+#  not a violation - they are surfaced by query, not by failure.
+#################################################################
+
+toc:PathwayShape a sh:NodeShape ;
+    sh:targetClass toc:Pathway ;
+    sh:property [
+        sh:path toc:hasActivity ;
+        sh:minCount 1 ;
+        sh:class toc:Activity ;
+        sh:message "Every pathway must have at least one typed activity." ] ;
+    sh:property [
+        sh:path toc:leadsTo ;
+        sh:minCount 1 ;
+        sh:class toc:Outcome ;
+        sh:message "Every pathway must lead to a typed outcome." ] ;
+    sh:property [
+        sh:path toc:hasImpact ;
+        sh:minCount 1 ;
+        sh:class toc:Impact ;
+        sh:message "Every pathway must state an impact." ] ;
+    sh:property [
+        sh:path toc:dependsOn ;
+        sh:minCount 1 ;
+        sh:class toc:Assumption ;
+        sh:message "Every pathway must declare at least one assumption." ] ;
+    sh:property [
+        sh:path toc:evidenceGrade ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:in ( "strong" "moderate" "limited" "gap" ) ;
+        sh:message "Every causal claim must carry exactly one evidence grade in {strong, moderate, limited, gap}." ] ;
+    sh:property [
+        sh:path toc:priorityForEval ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:boolean ;
+        sh:message "Every pathway must state whether it is a priority for future evaluation." ] .
+
+toc:OutcomeShape a sh:NodeShape ;
+    sh:targetClass toc:Outcome ;
+    sh:property [
+        sh:path toc:mapsToVFS ;
+        sh:minCount 1 ;
+        sh:class vfs:Outcome ;
+        sh:message "Every outcome must map to a Victims' Funding Strategy outcome." ] ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:minCount 1 ;
+        sh:message "Every outcome must carry a human-readable label." ] .
