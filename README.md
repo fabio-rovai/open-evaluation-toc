@@ -1,5 +1,7 @@
 # When a Theory of Change has to hold up
 
+[![Sponsor](https://img.shields.io/github/sponsors/fabio-rovai?label=Sponsor&logo=GitHub%20Sponsors&logoColor=EA4AAA&color=EA4AAA)](https://github.com/sponsors/fabio-rovai)
+
 A self-initiated, open method demonstrator by [Tesseract Academy](https://gov.tesseract.academy). It shows how a **Theory of Change** - the workhorse of non-experimental evaluation - can be built as a **typed, evidence-graded, machine-validated graph** rather than a prose diagram, so that its weak links are named rather than buried.
 
 The method is worked openly on **victim and witness support** (court-based support for witnesses; support for families bereaved by homicide), with every outcome anchored to the four published **[Victims' Funding Strategy](https://www.gov.uk/government/publications/victims-funding-strategy/victims-funding-strategy)** national outcomes.
@@ -45,3 +47,9 @@ The products a commissioner sees are the familiar ones - the diagram, the narrat
 ## Licence
 
 Data and documentation: [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/). Built on Tesseract Academy's [open-ontologies](https://github.com/fabio-rovai/open-ontologies) validation approach.
+
+---
+
+## Sponsor
+
+If this work is useful to you, you can support its continued development through [GitHub Sponsors](https://github.com/sponsors/fabio-rovai).
